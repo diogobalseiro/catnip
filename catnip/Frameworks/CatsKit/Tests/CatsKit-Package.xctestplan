@@ -1,0 +1,31 @@
+{
+  "configurations" : [
+    {
+      "id" : "0AA96B8B-123F-4FF7-BE89-12A77DE6406C",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "CatsKitDomainTests",
+        "name" : "CatsKitDomainTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "CatsKitServiceTests",
+        "name" : "CatsKitServiceTests"
+      }
+    }
+  ],
+  "version" : 1
+}

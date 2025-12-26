@@ -1,0 +1,24 @@
+{
+  "configurations" : [
+    {
+      "id" : "F9B6D5E6-E40D-457E-8D7D-9D3B66BBA2A0",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:",
+        "identifier" : "HTTPNetworkServiceTests",
+        "name" : "HTTPNetworkServiceTests"
+      }
+    }
+  ],
+  "version" : 1
+}
