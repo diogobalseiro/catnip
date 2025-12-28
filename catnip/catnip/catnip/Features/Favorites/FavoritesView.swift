@@ -6,13 +6,13 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct FavoritesView: View {
+    
+    @Bindable var store: StoreOf<FavoritesFeature>
+
     var body: some View {
         Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
-}
-
-#Preview {
-    FavoritesView()
 }
