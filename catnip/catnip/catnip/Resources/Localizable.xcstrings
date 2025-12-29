@@ -4,6 +4,72 @@
     "Cat breed: %@" : {
 
     },
+    "detailDescription" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Description"
+          }
+        }
+      }
+    },
+    "detailLifespan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lifespan"
+          }
+        }
+      }
+    },
+    "detailOrigin" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Origin"
+          }
+        }
+      }
+    },
+    "detailTemperament" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Temperament"
+          }
+        }
+      }
+    },
+    "favoritesAverageLifespan" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The lifespan is %@ years ❤️"
+          }
+        }
+      }
+    },
+    "favoritesTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dearly Beloved"
+          }
+        }
+      }
+    },
     "favoriteTabName" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -14,9 +80,6 @@
           }
         }
       }
-    },
-    "Hello, World!" : {
-
     },
     "homeSearchPlaceholder" : {
       "extractionState" : "manual",

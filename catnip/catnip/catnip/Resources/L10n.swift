@@ -5,7 +5,6 @@
 //  Created by Diogo Balseiro on 27/12/2025.
 //
 
-
 import Foundation
 
 enum L10n: String {
@@ -15,6 +14,13 @@ enum L10n: String {
     case homeTitle
 
     case favoriteTabName
+    case favoritesTitle
+    case favoritesAverageLifespan
+
+    case detailLifespan
+    case detailOrigin
+    case detailTemperament
+    case detailDescription
 
     var localized: String {
         NSLocalizedString(self.rawValue, comment: "")

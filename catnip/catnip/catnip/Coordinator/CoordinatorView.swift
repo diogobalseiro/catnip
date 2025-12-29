@@ -32,7 +32,8 @@ struct CoordinatorView: View {
             Tab {
                 favoritesNavigationStack {
                     FavoritesView(store: store.scope(state: \.favorites,
-                                                     action: \.favorites))
+                                                     action: \.favorites),
+                                  namespace: namespace)
                 }
             } label: {
                 Label(L10n.favoriteTabName.localized, systemImage: Constants.favoriteIcon)
@@ -75,7 +76,10 @@ private extension CoordinatorView {
 
         switch state.case {
 
-        default: Text("")
+        case .detail(let store):
+            DetailView(store: store,
+                       isFavoriteCoreState: store.state.catBreed.favorited != nil)
+            .navigationTransition(.zoom(sourceID: "catbreed-\(store.state.catBreed.id)", in: namespace))
         }
     }
 }

@@ -62,7 +62,36 @@ struct CoordinatorFeature {
             
             case .onAppear:
                 handleOnAppear(state: &state)
-                
+
+            case let .home(.breedTapped(breed)):
+                handleBreedDetailNavigation(breed: breed,
+                                            path: &state.homePath)
+
+            case let .favorites(.breedTapped(breed)):
+                handleBreedDetailNavigation(breed: breed,
+                                            path: &state.favoritesPath)
+
+            case let .favorites(.broadcast(.favoritesFeatureUnfavorited(breed))):
+                handleFavoritesBroadcastUnfavoritedAction(breed: breed,
+                                                          state: &state)
+
+
+            case let .home(.broadcast(.homeFeatureFavoriteAction(breed, newDesiredState))):
+                handleHomeBroadcastFavoritedAction(breed: breed,
+                                                   newDesiredState: newDesiredState,
+                                                   state: &state)
+
+            case let .homePath(.element(id: _,
+                                        action: .detail(.broadcast(.detailFeatureFavoriteAction(breed, newDesiredState))))):
+                handleDetailBroadcastFavoritedAction(breed: breed,
+                                                     newDesiredState: newDesiredState,
+                                                     state: &state)
+
+            case let .favoritesPath(.element(id: _, action: .detail(.broadcast(.detailFeatureFavoriteAction(breed, newDesiredState))))):
+                handleDetailBroadcastFavoritedAction(breed: breed,
+                                                     newDesiredState: newDesiredState,
+                                                     state: &state)
+            
             case let .reachabilityChanged(isConnected):
                 handleReachabilityChange(connected: isConnected, state: &state)
 
@@ -79,7 +108,10 @@ struct CoordinatorFeature {
 }
 
 @Reducer
-enum Path {}
+enum Path {
+
+    case detail(DetailFeature)
+}
 
 extension Path.State: Equatable {}
 
@@ -104,12 +136,72 @@ private extension CoordinatorFeature {
         .cancellable(id: CancelID.reachability)
     }
 
+    func handleFavoritesBroadcastUnfavoritedAction(breed: CatBreed,
+                                                   state: inout State) -> Effect<Action> {
+
+        // Send the event to:
+        // * the home feature
+        // * the home path's features and the favorite path's features
+        return .merge(
+            [.send(.home(.favoriteActionFromOutside(catBreed: breed)))]
+            + favoriteActionFromOutsideEffectsForAllPaths(state: &state,
+                                                          breed: breed))
+    }
+
+    func handleHomeBroadcastFavoritedAction(breed: CatBreed,
+                                            newDesiredState: Bool,
+                                            state: inout State) -> Effect<Action> {
+        // Send the event to:
+        // * the favorite feature
+        // * the home path's features and the favorite path's features
+        return .merge(
+            [.send(.favorites(.favoriteActionFromOutside(catBreed: breed,
+                                                         newDesiredState: newDesiredState)))]
+            + favoriteActionFromOutsideEffectsForAllPaths(state: &state,
+                                                          breed: breed))
+    }
+
+    func handleDetailBroadcastFavoritedAction(breed: CatBreed,
+                                              newDesiredState: Bool,
+                                              state: inout State) -> Effect<Action> {
+
+        // Send the event to:
+        // * the home feature
+        // * the favorite feature
+        // * the home path's features and the favorite path's features
+        return .merge(
+            [.send(.home(.favoriteActionFromOutside(catBreed: breed))),
+             .send(.favorites(.favoriteActionFromOutside(catBreed: breed,
+                                                         newDesiredState: newDesiredState)))]
+            + favoriteActionFromOutsideEffectsForAllPaths(state: &state,
+                                                          breed: breed))
+    }
+
+    func favoriteActionFromOutsideEffectsForAllPaths(state: inout State,
+                                                     breed: CatBreed) -> [Effect<Action>] {
+
+        state.homePath.ids
+            .map { .send(.homePath(.element(id: $0,
+                                            action: .detail(.favoriteActionFromOutside(catBreed: breed))))) }
+        +
+        state.favoritesPath.ids
+            .map { .send(.favoritesPath(.element(id: $0,
+                                                 action: .detail(.favoriteActionFromOutside(catBreed: breed))))) }
+    }
+
     func handleReachabilityChange(connected: Bool,
                                   state: inout State) -> Effect<Action> {
 
         Logger.shared.debug("Reachability is now \(connected ? "on" : "off")")
 
         state.connected = connected
+        return .none
+    }
+
+    func handleBreedDetailNavigation(breed: CatBreed,
+                                     path: inout StackState<Path.State>) -> Effect<Action> {
+
+        path.append(.detail(DetailFeature.State(catBreed: breed)))
         return .none
     }
 }

@@ -1,5 +1,5 @@
 //
-//  Reachabbility+Environment.swift
+//  Reachability+Environment.swift
 //  catnip
 //
 //  Created by Diogo Balseiro on 27/12/2025.

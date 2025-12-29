@@ -155,9 +155,34 @@ struct HomeFeature {
 
 private extension HomeFeature {
 
+    enum Constants {
+        
+        enum FetchBreedsLimit {
+            
+            static let live = 20
+            static let staging = 10
+        }
+        
+        enum FetchPagination {
+            
+            static let diff = 6
+            static let throttleInactivity: DispatchQueue.SchedulerTimeType.Stride = 1.0
+        }
+        
+        enum Favorite {
+            
+            static let debounceInactivity: DispatchQueue.SchedulerTimeType.Stride = 0.5
+        }
+        
+        enum Search {
+            
+            static let debounceInactivity: DispatchQueue.SchedulerTimeType.Stride = 0.3
+        }
+    }
+    
     var fetchBreedsLimit: Int {
 
-        environment == .live ? 20 : 10
+        environment == .live ? Constants.FetchBreedsLimit.live : Constants.FetchBreedsLimit.staging
     }
 
     func handleOnAppear(state: inout State) -> Effect<Action> {
@@ -230,7 +255,7 @@ private extension HomeFeature {
         let breeds = state.browsingModeState.breeds
         let diff = breeds.elements.count - index
 
-        guard diff < 6 else {
+        guard diff < Constants.FetchPagination.diff else {
 
             Logger.shared.debug("Still have \(diff) elements left, not fetching new page")
             return .none
@@ -261,7 +286,7 @@ private extension HomeFeature {
             }
         }
         .throttle(id: CancelID.fetchPageThrottle,
-                  for: 1.0,
+                  for: Constants.FetchPagination.throttleInactivity,
                   scheduler: DispatchQueue.main,
                   latest: true)
     }
@@ -314,7 +339,7 @@ private extension HomeFeature {
             }
         }
         .debounce(id: CancelID.favoriteDebounce(catBreed.id),
-                  for: 0.5,
+                  for: Constants.Favorite.debounceInactivity,
                   scheduler: DispatchQueue.main)
     }
 
@@ -392,7 +417,7 @@ private extension HomeFeature {
             await send(.searchBreeds(term))
         }
         .debounce(id: CancelID.searchDebounce,
-                  for: 0.3,
+                  for: Constants.Search.debounceInactivity,
                   scheduler: DispatchQueue.main)
     }
 

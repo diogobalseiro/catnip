@@ -5,7 +5,6 @@
 //  Created by Diogo Balseiro on 27/12/2025.
 //
 
-
 import SwiftUI
 import CatsKitDomain
 import CatsKitDomainStaging
@@ -19,12 +18,12 @@ struct ListItemView: View {
 
         var imageWidth: CGFloat {
 
-            (availableWidth * 0.98).rounded(.down)
+            (availableWidth * Constants.Image.widthFactor).rounded(.down)
         }
 
         var imageHeight: CGFloat {
 
-            (availableWidth * 1.2).rounded(.down)
+            (availableWidth * Constants.Image.heightFactor).rounded(.down)
         }
 
         var width: CGFloat {
@@ -34,7 +33,7 @@ struct ListItemView: View {
 
         var height: CGFloat {
 
-            (availableWidth * 1.5).rounded(.down)
+            (availableWidth * Constants.WholeView.heightFactor).rounded(.down)
         }
     }
 
@@ -47,7 +46,7 @@ struct ListItemView: View {
 
     var body: some View {
 
-        VStack(alignment: .center, spacing: 8) {
+        VStack(alignment: .center, spacing: Constants.WholeView.padding) {
 
             image
             name
@@ -85,21 +84,24 @@ struct ListItemView: View {
             isFavoriteUIState.toggle()
             onFavoriteTap(isFavoriteUIState)
         }) {
-            Image(systemName: isFavoriteUIState ? "star.fill" : "star")
+            Image(systemName: isFavoriteUIState ? Constants.Favorite.favorited : Constants.Favorite.unfavorited)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: 32, height: 32)
+                .frame(width: Constants.Favorite.size, height: Constants.Favorite.size)
                 .foregroundStyle(isFavoriteUIState ? .accent : .white)
-                .padding(6)
+                .padding(Constants.Favorite.padding)
                 .background(
                     Circle()
                         .fill(.ultraThinMaterial)
                         .overlay(
                             Circle()
-                                .fill(isFavoriteUIState ? .accent.opacity(0.2) : .clear)
+                                .fill(isFavoriteUIState ? .accent.opacity(Constants.Favorite.backgroundOpacity) : .clear)
                         )
                 )
-                .shadow(color: .black.opacity(0.2), radius: 6, x: 0, y: 3)
+                .shadow(color: .black.opacity(Constants.Favorite.shadowOpacity),
+                        radius: Constants.Favorite.shadowRadius,
+                        x: Constants.Favorite.shadowX,
+                        y: Constants.Favorite.shadowY)
                 .accessibilityIdentifier("FavoriteButton_\(catBreed.id)")
         }
         .buttonStyle(.plain)
@@ -120,7 +122,10 @@ struct ListItemView: View {
             RoundedRectangle(cornerRadius: Constants.Image.cornerRadius)
                 .stroke(breedTint(), lineWidth: Constants.Image.borderWidth)
         )
-        .shadow(color: .black.opacity(0.08), radius: 8, x: 0, y: 4)
+        .shadow(color: .black.opacity(Constants.Image.shadowOpacity),
+                radius: Constants.Image.shadowRadius,
+                x: Constants.Image.shadowX,
+                y: Constants.Image.shadowY)
         .overlay(alignment: layoutGuidance.favoriteAlignment) {
             favorited
         }
@@ -137,8 +142,27 @@ private extension ListItemView {
             static let transitionDuration = 0.3
             static let cornerRadius = 16.0
             static let borderWidth = 2.0
+            static let widthFactor = 0.98
+            static let heightFactor = 1.2
+            static let shadowOpacity = 0.08
+            static let shadowRadius = 8.0
+            static let shadowX = 0.0
+            static let shadowY = 4.0
         }
 
+        enum Favorite {
+
+            static let favorited = "star.fill"
+            static let unfavorited = "star"
+            static let size = 32.0
+            static let padding = 6.0
+            static let backgroundOpacity = 0.2
+            static let shadowOpacity = 0.2
+            static let shadowRadius = 6.0
+            static let shadowX = 0.0
+            static let shadowY = 3.0
+        }
+        
         enum Name {
 
             static let lineLimit = 1
@@ -147,7 +171,8 @@ private extension ListItemView {
 
         enum WholeView {
 
-            static let height = 300.0
+            static let heightFactor = 1.5
+            static let padding = 8.0
         }
 
         enum Other {

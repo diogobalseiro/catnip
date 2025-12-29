@@ -5,7 +5,6 @@
 //  Created by Diogo Balseiro on 27/12/2025.
 //
 
-
 import Foundation
 import UIKit
 import os

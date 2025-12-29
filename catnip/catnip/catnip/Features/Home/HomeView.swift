@@ -52,12 +52,12 @@ private extension HomeView {
 
         HStack {
             Spacer()
-            Image(systemName: "cat")
+            Image(systemName: Constants.Idle.systemName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .foregroundStyle(.accent)
-                .frame(width: 60)
-                .opacity(0.4)
+                .frame(width: Constants.Idle.size)
+                .opacity(Constants.Idle.opacity)
                 .padding()
                 .onTapGesture {
                     store.send(.onAppear)
@@ -144,6 +144,13 @@ private extension HomeView {
                 GridItem(.flexible(), spacing: horizontalSpacing),
                 GridItem(.flexible(), spacing: horizontalSpacing)
             ]
+        }
+        
+        enum Idle {
+            
+            static let systemName = "cat"
+            static let size = 60.0
+            static let opacity = 0.4
         }
     }
 }
