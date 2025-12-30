@@ -6,8 +6,10 @@ A SwiftUI iOS application for browsing cat breeds using [The Cat API](https://th
 
 Catnip allows users to browse, search, and favorite cat breeds with full offline support. The app demonstrates modern iOS development practices including clean architecture, comprehensive testing, and modular design.
 
- https://github.com/user/repo/assets/12345/video.mp4
- 
+### Demo
+
+https://github.com/user-attachments/assets/b6f0735a-7612-44f1-9796-3af42936280a
+  
 ## Features
 
 - **Browse Cat Breeds** - Infinite scrolling grid view with pagination
@@ -217,8 +219,10 @@ The gateway handles CRUD operations that are primarily main-actor-bound, so all 
 
 **Total Test Coverage:** ~2,233+ lines of test code, around 90% of app
 
-![Testcase sshot 1](.github/docs/readme/testcase-1.png)
-![Testcase sshot 2](.github/docs/readme/testcase-2.png)
+| Testplan top    | Testplan bottom |
+| -------- | ------- |
+| ![Testcase sshot 1](.github/docs/readme/testcase-1.png) | ![Testcase sshot 2](.github/docs/readme/testcase-2.png) |
+
 
 ## Project Structure
 
