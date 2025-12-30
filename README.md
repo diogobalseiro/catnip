@@ -282,7 +282,7 @@ catnip/
   - `GET /breeds?limit={limit}&page={page}` - Paginated breeds
   - `GET /breeds/search?q={query}` - Search breeds
 
-**Note:** API key is stored in Info.plist (reversed for basic obfuscation). In production, use environment variables or a secure backend.
+**Note:** API key is stored in Info.plist (reversed for basic obfuscation). In production, use a more secure alternative.
 
 ## Use of AI
 
@@ -298,7 +298,7 @@ Generating small, isolated code blocks for boilerplate, utility functions, or st
 Reviewing code for potential issues, suggesting improvements, and validating architectural decisions.
 
 **Why No "Vibe Coding"**
-Full AI-driven code generation wasn't used, as it tends to be ineffective for structured problems and would be counterproductive in a code challenge where understanding the problem space and demonstrating intentional architectural choices is crucial.
+Full AI-driven code generation wasn't used, as it tends to be ineffective for structured problems and would be counterproductive in a code challenge where understanding the problem space and demonstrating intentional architectural choices is the point.
 
 ## Possible Future Enhancements
 
