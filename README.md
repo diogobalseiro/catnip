@@ -217,11 +217,18 @@ The gateway handles CRUD operations that are primarily main-actor-bound, so all 
 - Documents expected visual appearance
 - Snapshots generated for the **simulator iPhone 17 Pro iOS 26.2**
 
-**Total Test Coverage:** ~2,233+ lines of test code, around 90% of app
+**Total Test Coverage:** 
+- ~90% of app
+- ~93% of CatsKit
+- ~86% of network service
 
-| Testplan top    | Testplan bottom |
+| App's Testplan | App's Testplan |
 | -------- | ------- |
-| ![Testcase sshot 1](.github/docs/readme/testcase-1.png) | ![Testcase sshot 2](.github/docs/readme/testcase-2.png) |
+| ![Testcase sshot 1](.github/docs/readme/app-testplan-1.png) | ![Testcase sshot 2](.github/docs/readme/app-testplan-2.png) |
+
+| CatsKit's Testplan | Network's Testplan |
+| -------- | ------- |
+| ![Testcase sshot 1](.github/docs/readme/catskit-testplan.png) | ![Testcase sshot 2](.github/docs/readme/network-testplan.png) |
 
 
 ## Project Structure
