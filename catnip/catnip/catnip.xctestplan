@@ -1,0 +1,45 @@
+{
+  "configurations" : [
+    {
+      "id" : "82EDCBAF-42C2-42C9-9430-3B031C495AEF",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "performanceAntipatternCheckerEnabled" : true,
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:catnip.xcodeproj",
+      "identifier" : "D9C218B62EFED23600D4B428",
+      "name" : "catnip"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:catnip.xcodeproj",
+        "identifier" : "D9C218C52EFED23700D4B428",
+        "name" : "catnipTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:catnip.xcodeproj",
+        "identifier" : "D9C218CF2EFED23700D4B428",
+        "name" : "catnipUITests"
+      }
+    },
+    {
+      "parallelizable" : false,
+      "target" : {
+        "containerPath" : "container:catnip.xcodeproj",
+        "identifier" : "D92FE8142F01739F0015B5D3",
+        "name" : "catnipSnapshotTests"
+      }
+    }
+  ],
+  "version" : 1
+}

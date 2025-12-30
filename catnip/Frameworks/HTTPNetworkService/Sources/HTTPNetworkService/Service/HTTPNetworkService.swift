@@ -14,9 +14,9 @@ public protocol HTTPNetworkServiceProtocol: Sendable {
 }
 
 /// Convenience class that implements HTTPNetworkServiceProtocol
-public final class HTTPNetworkService: HTTPNetworkServiceProtocol {
+public final class HTTPNetworkService: HTTPNetworkServiceProtocol, Sendable {
         
-    private let dataRequester: HTTPNetworkServiceDataRequestProtocol
+    public let dataRequester: HTTPNetworkServiceDataRequestProtocol
     private let decoder: JSONDecoder
     
     public init(dataRequester: HTTPNetworkServiceDataRequestProtocol = URLSession.shared,

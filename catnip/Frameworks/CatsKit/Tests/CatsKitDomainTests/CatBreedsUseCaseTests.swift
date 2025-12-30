@@ -18,7 +18,7 @@ struct CatBreedsUseCaseTests {
         func breeds(limit: String,
                     page: String) async throws -> [CatBreed] {
 
-            CatBreed.allMocks
+            CatBreed.allMocksPage0
         }
     }
     
@@ -28,7 +28,7 @@ struct CatBreedsUseCaseTests {
         let useCase = CatBreedsUseCase(repository: MockCatBreedsRepository())
         let result = try await useCase.execute(limit: "10", page: "0")
 
-        #expect(result == CatBreed.allMocks)
+        #expect(result == CatBreed.allMocksPage0)
     }
     
     @Test("Supports concurrency")
@@ -44,7 +44,7 @@ struct CatBreedsUseCaseTests {
         
         for result in results {
             
-            #expect(result == CatBreed.allMocks)
+            #expect(result == CatBreed.allMocksPage0)
         }
     }
 }

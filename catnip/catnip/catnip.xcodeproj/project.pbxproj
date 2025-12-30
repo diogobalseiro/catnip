@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D92FE8202F0173D30015B5D3 /* SnapshotTesting in Frameworks */ = {isa = PBXBuildFile; productRef = D92FE81F2F0173D30015B5D3 /* SnapshotTesting */; };
 		D9C218F32EFED2C700D4B428 /* CatsKitDomain in Frameworks */ = {isa = PBXBuildFile; productRef = D9C218F22EFED2C700D4B428 /* CatsKitDomain */; };
 		D9C218F52EFED2C700D4B428 /* CatsKitDomainStaging in Frameworks */ = {isa = PBXBuildFile; productRef = D9C218F42EFED2C700D4B428 /* CatsKitDomainStaging */; };
 		D9C218F72EFED2C700D4B428 /* CatsKitService in Frameworks */ = {isa = PBXBuildFile; productRef = D9C218F62EFED2C700D4B428 /* CatsKitService */; };
@@ -15,6 +16,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		D92FE8192F01739F0015B5D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D9C218AF2EFED23600D4B428 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D9C218B62EFED23600D4B428;
+			remoteInfo = catnip;
+		};
 		D9C218C72EFED23700D4B428 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D9C218AF2EFED23600D4B428 /* Project object */;
@@ -32,14 +40,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D92FE8152F01739F0015B5D3 /* catnipSnapshotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = catnipSnapshotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C218B72EFED23600D4B428 /* catnip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = catnip.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C218C62EFED23700D4B428 /* catnipTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = catnipTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9C218D02EFED23700D4B428 /* catnipUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = catnipUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9F244302F028681008F94A5 /* catnip.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = file; path = catnip.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
 		D9C219462EFED33D00D4B428 /* Exceptions for "catnip" folder in "catnip" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			additionalCompilerFlagsByRelativePath = {
+				App/catnipApp.swift = "-w";
+			};
 			membershipExceptions = (
 				Info.plist,
 			);
@@ -48,6 +61,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		D92FE8162F01739F0015B5D3 /* catnipSnapshotTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = catnipSnapshotTests;
+			sourceTree = "<group>";
+		};
 		D9C218B92EFED23600D4B428 /* catnip */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -69,6 +87,14 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D92FE8122F01739F0015B5D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D92FE8202F0173D30015B5D3 /* SnapshotTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D9C218B42EFED23600D4B428 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -101,9 +127,11 @@
 		D9C218AE2EFED23600D4B428 = {
 			isa = PBXGroup;
 			children = (
+				D9F244302F028681008F94A5 /* catnip.xctestplan */,
 				D9C218B92EFED23600D4B428 /* catnip */,
 				D9C218C92EFED23700D4B428 /* catnipTests */,
 				D9C218D32EFED23700D4B428 /* catnipUITests */,
+				D92FE8162F01739F0015B5D3 /* catnipSnapshotTests */,
 				D9C218B82EFED23600D4B428 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -114,6 +142,7 @@
 				D9C218B72EFED23600D4B428 /* catnip.app */,
 				D9C218C62EFED23700D4B428 /* catnipTests.xctest */,
 				D9C218D02EFED23700D4B428 /* catnipUITests.xctest */,
+				D92FE8152F01739F0015B5D3 /* catnipSnapshotTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,6 +150,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		D92FE8142F01739F0015B5D3 /* catnipSnapshotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D92FE81B2F01739F0015B5D3 /* Build configuration list for PBXNativeTarget "catnipSnapshotTests" */;
+			buildPhases = (
+				D92FE8112F01739F0015B5D3 /* Sources */,
+				D92FE8122F01739F0015B5D3 /* Frameworks */,
+				D92FE8132F01739F0015B5D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D92FE81A2F01739F0015B5D3 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				D92FE8162F01739F0015B5D3 /* catnipSnapshotTests */,
+			);
+			name = catnipSnapshotTests;
+			packageProductDependencies = (
+				D92FE81F2F0173D30015B5D3 /* SnapshotTesting */,
+			);
+			productName = catnipSnapshotTests;
+			productReference = D92FE8152F01739F0015B5D3 /* catnipSnapshotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		D9C218B62EFED23600D4B428 /* catnip */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D9C218DA2EFED23700D4B428 /* Build configuration list for PBXNativeTarget "catnip" */;
@@ -204,6 +257,10 @@
 				LastSwiftUpdateCheck = 2620;
 				LastUpgradeCheck = 2620;
 				TargetAttributes = {
+					D92FE8142F01739F0015B5D3 = {
+						CreatedOnToolsVersion = 26.2;
+						TestTargetID = D9C218B62EFED23600D4B428;
+					};
 					D9C218B62EFED23600D4B428 = {
 						CreatedOnToolsVersion = 26.2;
 					};
@@ -229,6 +286,7 @@
 			packageReferences = (
 				D9C218F12EFED2C700D4B428 /* XCLocalSwiftPackageReference "../Frameworks/CatsKit" */,
 				D9C2195B2EFED45000D4B428 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				D92FE81E2F0173D30015B5D3 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D9C218B82EFED23600D4B428 /* Products */;
@@ -238,11 +296,19 @@
 				D9C218B62EFED23600D4B428 /* catnip */,
 				D9C218C52EFED23700D4B428 /* catnipTests */,
 				D9C218CF2EFED23700D4B428 /* catnipUITests */,
+				D92FE8142F01739F0015B5D3 /* catnipSnapshotTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		D92FE8132F01739F0015B5D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D9C218B52EFED23600D4B428 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -267,6 +333,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		D92FE8112F01739F0015B5D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		D9C218B32EFED23600D4B428 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -291,6 +364,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		D92FE81A2F01739F0015B5D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D9C218B62EFED23600D4B428 /* catnip */;
+			targetProxy = D92FE8192F01739F0015B5D3 /* PBXContainerItemProxy */;
+		};
 		D9C218C82EFED23700D4B428 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D9C218B62EFED23600D4B428 /* catnip */;
@@ -304,6 +382,59 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		D92FE81C2F01739F0015B5D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diogobalseiro.catnipSnapshotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/catnip.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/catnip";
+			};
+			name = Debug;
+		};
+		D92FE81D2F01739F0015B5D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diogobalseiro.catnipSnapshotTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/catnip.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/catnip";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		D9C218D82EFED23700D4B428 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -617,6 +748,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		D92FE81B2F01739F0015B5D3 /* Build configuration list for PBXNativeTarget "catnipSnapshotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D92FE81C2F01739F0015B5D3 /* Debug */,
+				D92FE81D2F01739F0015B5D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		D9C218B22EFED23600D4B428 /* Build configuration list for PBXProject "catnip" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -663,6 +803,14 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D92FE81E2F0173D30015B5D3 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-snapshot-testing";
+			requirement = {
+				kind = exactVersion;
+				version = 1.18.7;
+			};
+		};
 		D9C2195B2EFED45000D4B428 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
@@ -674,6 +822,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D92FE81F2F0173D30015B5D3 /* SnapshotTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D92FE81E2F0173D30015B5D3 /* XCRemoteSwiftPackageReference "swift-snapshot-testing" */;
+			productName = SnapshotTesting;
+		};
 		D9C218F22EFED2C700D4B428 /* CatsKitDomain */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = CatsKitDomain;

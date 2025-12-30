@@ -9,21 +9,27 @@ import Foundation
 import HTTPNetworkService
 
 /// Convencience mock object, conforming to HTTPNetworkServiceDataRequestProtocol, for easy testing and staging
-public final class HTTPNetworkServiceDataRequestMock {
+public actor HTTPNetworkServiceDataRequestMock {
     
     public enum Error: Swift.Error {
         
         case mockDataNotFound
     }
     
-    let datas: [String: Data]
-    let delay: Duration?
+    public var datas: [String: Data]
+    public var delay: Duration?
 
     public init(datas: [String: Data] = [String: Data](),
                 delay: Duration? = nil) {
 
         self.datas = datas
         self.delay = delay
+    }
+    
+    public func updateData(_ data: Data,
+                           for url: String) {
+        
+        datas[url] = data
     }
 }
 

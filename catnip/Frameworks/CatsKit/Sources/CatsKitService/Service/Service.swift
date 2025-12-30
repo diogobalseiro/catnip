@@ -42,7 +42,7 @@ public final class Service: ServiceProtocol {
         case invalidURL
     }
 
-    let config: Config
+    public let config: Config
     let networkService: HTTPNetworkServiceProtocol
 
     public init(config: Config,

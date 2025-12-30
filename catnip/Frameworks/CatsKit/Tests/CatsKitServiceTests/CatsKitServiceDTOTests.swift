@@ -20,7 +20,7 @@ struct CatsKitServiceDTOTests {
     @Test("Model convertions")
     func testModelConvertions() async throws {
         
-        let originalBreeds = CatBreed.allMocks
+        let originalBreeds = CatBreed.allMocksPage0
 
         let mappedBreeds = originalBreeds.map { CatBreedDTO.fromDomain($0) }
 
