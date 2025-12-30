@@ -12,13 +12,22 @@ import CatsKitDomainStaging
 
 @Suite("CatBreedsUseCase")
 struct CatBreedsUseCaseTests {
-
+    
     final class MockCatBreedsRepository: CatBreedsRepositoryProtocol {
-
+        
         func breeds(limit: String,
                     page: String) async throws -> [CatBreed] {
-
-            CatBreed.allMocksPage0
+            
+            switch page {
+                
+            case "0":
+                CatBreed.allMocksPage0
+                
+            case "1":
+                CatBreed.allMocksPage1
+                
+            default: []
+            }
         }
     }
     
@@ -26,9 +35,13 @@ struct CatBreedsUseCaseTests {
     func testSuccessfulExecution() async throws {
 
         let useCase = CatBreedsUseCase(repository: MockCatBreedsRepository())
-        let result = try await useCase.execute(limit: "10", page: "0")
+        let result0 = try await useCase.execute(limit: "10", page: "0")
 
-        #expect(result == CatBreed.allMocksPage0)
+        #expect(result0 == CatBreed.allMocksPage0)
+        
+        let result1 = try await useCase.execute(limit: "10", page: "1")
+
+        #expect(result1 == CatBreed.allMocksPage1)
     }
     
     @Test("Supports concurrency")
